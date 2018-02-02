@@ -2,6 +2,7 @@ import path from 'path'
 import autoprefixer from 'autoprefixer'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import webpack from 'webpack'
+import ProvidePlugin from 'webpack/lib/ProvidePlugin'
 
 const config = {
   entry: './src/index.js',
@@ -57,6 +58,10 @@ const config = {
     ]
   },
   plugins:[
+    new ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+    }),
     new HtmlWebpackPlugin({
       template: 'public/index.html',
       filename: 'index.html',
