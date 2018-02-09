@@ -46,6 +46,32 @@ const config = {
         ]
       },
       {
+        test:/\.scss$/,
+        exclude: /node_modules/,
+        use:[
+          {loader: 'style-loader'},
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              modules: true,
+              localIdentName: '[name]_[local]_[hash:base64:5]'
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options:{
+              config:{
+                path: './postcss.config.js'
+              }
+            }
+          },
+          {
+            loader: 'sass-loader'
+          }
+        ]
+      },
+      {
         test: /\.(png|jpe?g|gif)$/,
         loader: 'url-loader?limit=10000&name=images/[name].[ext]'
       }
