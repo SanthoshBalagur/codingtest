@@ -61,7 +61,10 @@ const config = {
   devServer:{
     port:3000,
     hot:true,
-    inline:true
+    inline:true,
+    proxy: {
+      "/": "http://localhost:4000"
+    }
   },
   plugins:[
     new ProvidePlugin({
