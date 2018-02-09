@@ -38,15 +38,9 @@ const config = {
           {
             loader: 'postcss-loader',
             options:{
-              ident: 'postcss',
-              plugins: () => [
-                autoprefixer({
-                  browsers:[
-                    "> 1%",
-                    "last 2 versions"
-                  ]
-                })
-              ]
+              config:{
+                path: './postcss.config.js'
+              }
             }
           }
         ]
